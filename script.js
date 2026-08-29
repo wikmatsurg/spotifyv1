@@ -1,4 +1,4 @@
-let songNum = 4
+let songNum = 3
 
 window.onload = function() {
     const form = document.getElementById("form");
