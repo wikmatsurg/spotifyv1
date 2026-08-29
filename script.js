@@ -5,6 +5,7 @@ window.onload = function() {
     form.addEventListener("submit", async function () {
         const formData = new FormData(form)
         songNum = formData.get("songNum")
+        console.log(songNum)
         const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
         const params = new URLSearchParams(window.location.search);
         const code = params.get("code");
