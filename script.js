@@ -1,7 +1,7 @@
 let songs = 0
 
-const form = document.getElementById("form");
-if (form) {
+window.onload = function() {
+    const form = document.getElementById("form");
     form.addEventListener("submit", async function () {
         console.log("hello")
         const textValue = numberInput.value;
@@ -17,8 +17,6 @@ if (form) {
             populateUI(profile);
         }
     });
-} else {
-    console.log("???")
 }
 
 
