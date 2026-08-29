@@ -1,4 +1,5 @@
 let songNum = 3
+let playlistID = "_"
 
 window.onload = function() {
     const form = document.getElementById("form");
@@ -15,7 +16,7 @@ window.onload = function() {
         } else {
             const accessToken = await getAccessToken(clientId, code);
             const playlist = await createPlaylist(accessToken);
-            const playlistID = playlist.id
+            playlistID = playlist.id
 
             let songsToAdd = []
             const topSongData = await getTopSongs(accessToken)
