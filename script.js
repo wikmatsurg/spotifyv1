@@ -4,9 +4,10 @@ const form = document.getElementById("form");
 form.addEventListener("submit", start(event))
 
 function start(event) {
+    console.log("hello")
     event.preventDefault();
     const textValue = numberInput.value;
-    console.log(textValue)
+    
     songs = Number(textValue);
     const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
     const params = new URLSearchParams(window.location.search);
