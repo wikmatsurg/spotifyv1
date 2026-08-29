@@ -54,7 +54,7 @@ async function generateCodeChallenge(codeVerifier) {
         .replace(/=+$/, '');
 }
 
-export async function getAccessToken(clientId, code) {
+async function getAccessToken(clientId, code) {
     const verifier = localStorage.getItem("verifier");
 
     const params = new URLSearchParams();
