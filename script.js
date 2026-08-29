@@ -2,7 +2,7 @@ let songs = 0
 console.log(songs)
 
 const form = document.getElementById("form");
-form.addEventListener("submit", function () {
+form.addEventListener("submit", async function () {
     console.log("hello")
     const textValue = numberInput.value;
     songs = Number(textValue);
@@ -18,7 +18,7 @@ form.addEventListener("submit", function () {
     }
 });
 
-export async function redirectToAuthCodeFlow(clientId) {
+async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
     const challenge = await generateCodeChallenge(verifier);
 
