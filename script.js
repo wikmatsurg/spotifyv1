@@ -1,11 +1,10 @@
-let songs = 0
+let songNum = 0
 
 window.onload = function() {
     const form = document.getElementById("form");
     form.addEventListener("submit", async function () {
-        console.log("hello")
-        const textValue = numberInput.value;
-        songs = Number(textValue);
+        const formData = new FormData(form)
+        songNum = formData.get("songNum")
         const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
         const params = new URLSearchParams(window.location.search);
         const code = params.get("code");
