@@ -1,3 +1,6 @@
+const button = document.getElementById("button");
+button.addEventListener("click", start())
+
 function start() {
     const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
     const params = new URLSearchParams(window.location.search);
