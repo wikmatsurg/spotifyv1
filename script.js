@@ -97,7 +97,7 @@ async function getTopSongs(token) {
         headers: { Authorization: `Bearer ${token}` },
         body: JSON.stringify({
             type: "tracks",
-            time_range: "long_term"
+            time_range: "long_term",
             limit: songNum
         })
     });
