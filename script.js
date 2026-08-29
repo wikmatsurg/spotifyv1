@@ -98,13 +98,9 @@ async function createPlaylist(token) {
 }
 
 async function getTopSongs(token) {
-    const result = await fetch("https://api.spotify.com/v1/me/top/tracks", {
+    const result = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=${songNum}", {
         method: "GET",
-        headers: { Authorization: `Bearer ${token}` },
-        body: JSON.stringify({
-            type: "tracks",
-            time_range: "long_term",
-            limit: songNum
+        headers: { Authorization: `Bearer ${token}` }
         })
     });
     return await result.json();
