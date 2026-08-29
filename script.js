@@ -1,9 +1,9 @@
 let songs
 
 const form = document.getElementById("form");
-form.addEventListener("submit", start)
+form.addEventListener("submit", start(event))
 
-function start() {
+function start(event) {
     event.preventDefault();
     const textValue = numberInput.value;
     console.log(textValue)
