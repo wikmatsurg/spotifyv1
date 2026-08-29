@@ -1,13 +1,9 @@
 let songs
 
 const form = document.getElementById("form");
-form.addEventListener("submit", start(event))
-
-function start(event) {
+form.addEventListener("submit", function () {
     console.log("hello")
-    event.preventDefault();
     const textValue = numberInput.value;
-    
     songs = Number(textValue);
     const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
     const params = new URLSearchParams(window.location.search);
@@ -19,7 +15,7 @@ function start(event) {
         const profile = await fetchProfile(accessToken);
         populateUI(profile);
     }
-}
+});
 
 export async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
