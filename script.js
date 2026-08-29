@@ -22,7 +22,7 @@ window.onload = function() {
             for (let song of topSongData.items) {
                 songsToAdd.push(song.uri)
             }
-            console.log(topSongData)
+            console.log(songsToAdd)
         }
     });
 }
