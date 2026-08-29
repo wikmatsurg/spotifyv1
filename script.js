@@ -2,7 +2,8 @@ let songNum = 3
 
 window.onload = function() {
     const form = document.getElementById("form");
-    form.addEventListener("submit", async function () {
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault()
         const formData = new FormData(form)
         songNum = formData.get("songNum")
         console.log(songNum)
