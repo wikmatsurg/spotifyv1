@@ -16,7 +16,13 @@ window.onload = function() {
             const accessToken = await getAccessToken(clientId, code);
             const playlist = await createPlaylist(accessToken);
             const playlistID = playlist.id
-            console.log(playlistID)
+
+            let songsToAdd = []
+            const topSongData = await getTopSongs(accessToken)
+            for (let song of topSongData.items) {
+                topSongData.push(song.uri)
+            }
+            console.log(topSongData)
         }
     });
 }
