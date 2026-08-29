@@ -2,10 +2,10 @@ const button = document.getElementById("button");
 button.addEventListener("click", start())
 
 function start() {
+    console.log("hi")
     const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
-    console.log("hi")
     if (!code) {
         redirectToAuthCodeFlow(clientId);
     } else {
