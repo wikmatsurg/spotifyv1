@@ -23,6 +23,8 @@ window.onload = function() {
                 songsToAdd.push(song.uri)
             }
             console.log(songsToAdd)
+            const added = addToPlaylist(accessToken)
+            console.log(added)
         }
     });
 }
@@ -105,4 +107,13 @@ async function getTopSongs(token) {
     return await result.json();
 }
 
-
+async function addToPlaylist(token) {
+    const result = await fetch("https://api.spotify.com/v1/playlists/"+playlistID+"/items", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+        body: JSON.stringify({
+            uris: songsToAdd
+        })
+    });
+    return await result.json();
+}
