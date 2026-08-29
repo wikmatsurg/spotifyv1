@@ -1,5 +1,5 @@
 const button = document.getElementById("button");
-button.addEventListener("click", start())
+button.addEventListener("click", start)
 
 function start() {
     console.log("hi")
