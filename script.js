@@ -1,8 +1,13 @@
-const button = document.getElementById("button");
-button.addEventListener("click", start)
+let songs
+
+const form = document.getElementById("form");
+form.addEventListener("submit", start)
 
 function start() {
-    console.log("hi")
+    event.preventDefault();
+    const textValue = numberInput.value;
+    console.log(textValue)
+    songs = Number(textValue);
     const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
