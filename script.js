@@ -2,21 +2,24 @@ let songs = 0
 console.log(songs)
 
 const form = document.getElementById("form");
-form.addEventListener("submit", async function () {
-    console.log("hello")
-    const textValue = numberInput.value;
-    songs = Number(textValue);
-    const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-    if (!code) {
-        redirectToAuthCodeFlow(clientId);
-    } else {
-        const accessToken = await getAccessToken(clientId, code);
-        const profile = await fetchProfile(accessToken);
-        populateUI(profile);
-    }
-});
+if (form) {
+    form.addEventListener("submit", async function () {
+        console.log("hello")
+        const textValue = numberInput.value;
+        songs = Number(textValue);
+        const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");
+        if (!code) {
+            redirectToAuthCodeFlow(clientId);
+        } else {
+            const accessToken = await getAccessToken(clientId, code);
+            const profile = await fetchProfile(accessToken);
+            populateUI(profile);
+        }
+    });
+}
+
 
 async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
