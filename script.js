@@ -1,4 +1,5 @@
-let songs
+let songs = 0
+console.log(songs)
 
 const form = document.getElementById("form");
 form.addEventListener("submit", function () {
