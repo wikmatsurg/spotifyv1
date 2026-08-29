@@ -1,5 +1,4 @@
 let songs = 0
-console.log(songs)
 
 const form = document.getElementById("form");
 if (form) {
