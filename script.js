@@ -20,7 +20,7 @@ window.onload = function() {
             let songsToAdd = []
             const topSongData = await getTopSongs(accessToken)
             for (let song of topSongData.items) {
-                topSongData.push(song.uri)
+                songsToAdd.push(song.uri)
             }
             console.log(topSongData)
         }
