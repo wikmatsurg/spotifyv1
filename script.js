@@ -13,10 +13,9 @@ window.onload = function() {
         code = params.get("code");
         if (!code) {
             redirectToAuthCodeFlow(clientId);
-        } else {
-            const message = document.getElementById("message")
-            message.innerHTML = "Logged in successfully!"
         }
+        const message = document.getElementById("message")
+        message.innerHTML = "Logged in successfully!"
     });
     const form = document.getElementById("form");
     form.addEventListener("submit", async function (e) {
