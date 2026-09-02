@@ -34,6 +34,8 @@ window.onload = function() {
         console.log(songsToAdd)
         const added = addToPlaylist(accessToken)
         console.log(added)
+        const message = document.getElementById("message")
+        message.innerHTML = "Playlist created!"
     });
 }
 
