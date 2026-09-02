@@ -24,6 +24,8 @@ window.onload = function() {
         const formData = new FormData(form)
         songNum = formData.get("songNum")
         console.log(songNum)
+        term = formData.get("term")
+        console.log(term)
         const playlist = await createPlaylist(accessToken);
         playlistID = playlist.id
         songsToAdd = []
