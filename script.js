@@ -1,4 +1,5 @@
 let songNum = 3
+let term = "long"
 let playlistID = "_"
 let songsToAdd = []
 const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
@@ -15,7 +16,7 @@ window.onload = function() {
             redirectToAuthCodeFlow(clientId);
         }
         const message = document.getElementById("message")
-        message.innerHTML = "Logged in successfully!"
+        message.innerHTML = "Already logged in successfully!"
     });
     const form = document.getElementById("form");
     form.addEventListener("submit", async function (e) {
@@ -112,7 +113,7 @@ async function createPlaylist(token) {
 }
 
 async function getTopSongs(token) {
-    const result = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit="+songNum, {
+    const result = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range="+term+"_term&limit="+songNum, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` }
     });
