@@ -1,33 +1,37 @@
 let songNum = 3
 let playlistID = "_"
 let songsToAdd = []
+let accessToken = "_"
 
 window.onload = function() {
-    const form = document.getElementById("form");
-    form.addEventListener("submit", async function (e) {
+    const loginButton = document.getElementById("loginButton")
+    form.addEventListener("click", async function (e) {
         e.preventDefault()
-        const formData = new FormData(form)
-        songNum = formData.get("songNum")
-        console.log(songNum)
         const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
         const params = new URLSearchParams(window.location.search);
         const code = params.get("code");
         if (!code) {
             redirectToAuthCodeFlow(clientId);
         } else {
-            const accessToken = await getAccessToken(clientId, code);
-            const playlist = await createPlaylist(accessToken);
-            playlistID = playlist.id
-
-            songsToAdd = []
-            const topSongData = await getTopSongs(accessToken)
-            for (let song of topSongData.items) {
-                songsToAdd.push(song.uri)
-            }
-            console.log(songsToAdd)
-            const added = addToPlaylist(accessToken)
-            console.log(added)
+            accessToken = await getAccessToken(clientId, code);
         }
+    });
+    const form = document.getElementById("form");
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault()
+        const formData = new FormData(form)
+        songNum = formData.get("songNum")
+        console.log(songNum)
+        const playlist = await createPlaylist(accessToken);
+        playlistID = playlist.id
+        songsToAdd = []
+        const topSongData = await getTopSongs(accessToken)
+        for (let song of topSongData.items) {
+            songsToAdd.push(song.uri)
+        }
+        console.log(songsToAdd)
+        const added = addToPlaylist(accessToken)
+        console.log(added)
     });
 }
 
