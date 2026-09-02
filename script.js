@@ -5,7 +5,7 @@ let accessToken = "_"
 
 window.onload = function() {
     const loginButton = document.getElementById("loginButton")
-    form.addEventListener("click", async function (e) {
+    loginButton.addEventListener("click", async function (e) {
         e.preventDefault()
         const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
         const params = new URLSearchParams(window.location.search);
