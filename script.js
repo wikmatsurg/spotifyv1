@@ -14,6 +14,8 @@ window.onload = function() {
             redirectToAuthCodeFlow(clientId);
         } else {
             accessToken = await getAccessToken(clientId, code);
+            const message = document.getElementById("message")
+            message.innerHTML = "Logged in successfully!"
         }
     });
     const form = document.getElementById("form");
