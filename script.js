@@ -15,8 +15,6 @@ window.onload = function() {
         if (!apiCode) {
             redirectToAuthCodeFlow(clientId);
         }
-        const message = document.getElementById("message")
-        message.innerHTML = "Already logged in successfully!"
     });
     const form = document.getElementById("form");
     form.addEventListener("submit", async function (e) {
