@@ -1,19 +1,18 @@
 let songNum = 3
 let playlistID = "_"
 let songsToAdd = []
+const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
 let accessToken = "_"
 
 window.onload = function() {
     const loginButton = document.getElementById("loginButton")
     loginButton.addEventListener("click", async function (e) {
         e.preventDefault()
-        const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
         const params = new URLSearchParams(window.location.search);
         const code = params.get("code");
         if (!code) {
             redirectToAuthCodeFlow(clientId);
         } else {
-            accessToken = await getAccessToken(clientId, code);
             const message = document.getElementById("message")
             message.innerHTML = "Logged in successfully!"
         }
@@ -21,6 +20,7 @@ window.onload = function() {
     const form = document.getElementById("form");
     form.addEventListener("submit", async function (e) {
         e.preventDefault()
+        accessToken = await getAccessToken(clientId, code);
         const formData = new FormData(form)
         songNum = formData.get("songNum")
         console.log(songNum)
