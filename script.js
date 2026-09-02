@@ -3,13 +3,14 @@ let playlistID = "_"
 let songsToAdd = []
 const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
 let accessToken = "_"
+let code = ""
 
 window.onload = function() {
     const loginButton = document.getElementById("loginButton")
     loginButton.addEventListener("click", async function (e) {
         e.preventDefault()
         const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
+        code = params.get("code");
         if (!code) {
             redirectToAuthCodeFlow(clientId);
         } else {
