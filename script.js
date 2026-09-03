@@ -4,7 +4,7 @@ let playlistID = "_"
 let songsToAdd = []
 const clientId = "3113bc14f5a649e38faf1dabc03e4d8b";
 let accessToken = "_"
-let apiCode
+let apiCode = "_"
 
 window.onload = function() {
     const loginButton = document.getElementById("loginButton")
