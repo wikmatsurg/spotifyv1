@@ -14,6 +14,7 @@ window.onload = function() {
         apiCode = params.get("code");
         if (!apiCode) {
             redirectToAuthCodeFlow(clientId);
+            apiCode = params.get("code");
         }
     });
     const form = document.getElementById("form");
